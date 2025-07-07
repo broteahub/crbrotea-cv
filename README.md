@@ -1,36 +1,176 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CV Next.js Project - SOLID Architecture
 
-## Getting Started
+Este proyecto es un CV dinámico construido con Next.js siguiendo los principios SOLID para crear una arquitectura mantenible y extensible.
 
-First, run the development server:
+## 🏗️ Arquitectura SOLID
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### 1. Single Responsibility Principle (SRP)
+Cada clase y componente tiene una única responsabilidad:
+
+- **Components**: Cada componente se encarga de una sola funcionalidad
+  - `PersonalInfo`: Solo muestra información personal
+  - `SkillBadge`: Solo renderiza una habilidad
+  - `ExperienceItem`: Solo muestra un elemento de experiencia
+- **Services**: Cada servicio tiene una responsabilidad específica
+  - `CVDataRepository`: Solo acceso a datos
+  - `CVDataValidator`: Solo validación de datos
+  - `CVDataService`: Solo orquestación de servicios
+
+### 2. Open/Closed Principle (OCP)
+El sistema está abierto para extensión pero cerrado para modificación:
+
+- **Nuevas fuentes de datos**: Puedes agregar `ApiDataRepository` sin modificar código existente
+- **Nuevos validadores**: Implementa `IDataValidator` para diferentes tipos de validación
+- **Nuevos componentes**: Extiende la UI sin modificar componentes existentes
+
+### 3. Liskov Substitution Principle (LSP)
+Las implementaciones pueden ser sustituidas por sus abstracciones:
+
+- `JsonDataRepository` y `ApiDataRepository` son intercambiables
+- Cualquier implementación de `IDataValidator` puede usarse sin cambios
+- Los componentes reciben props tipadas que garantizan compatibilidad
+
+### 4. Interface Segregation Principle (ISP)
+Interfaces específicas en lugar de una interfaz monolítica:
+
+- `IDataRepository`: Solo métodos de acceso a datos
+- `IDataValidator`: Solo métodos de validación
+- `IDataTransformer`: Solo métodos de transformación
+
+### 5. Dependency Inversion Principle (DIP)
+Los módulos de alto nivel no dependen de módulos de bajo nivel:
+
+- `CVDataService` depende de abstracciones (`IDataRepository`, `IDataValidator`)
+- `ServiceFactory` maneja la inyección de dependencias
+- Los componentes usan el hook `useCVData` que abstrae la lógica de datos
+
+## 📁 Estructura del Proyecto
+
+```
+src/
+├── types/              # Tipos TypeScript (Domain Models)
+│   └── cv.types.ts
+├── interfaces/         # Contratos/Abstracciones
+│   └── data.interface.ts
+├── services/          # Lógica de negocio
+│   ├── data.repository.ts
+│   ├── data.validator.ts
+│   └── data.service.ts
+├── factories/         # Inyección de dependencias
+│   └── service.factory.ts
+├── hooks/            # Custom hooks
+│   └── useCVData.ts
+├── components/       # Componentes UI
+│   ├── ui/
+│   ├── personal/
+│   ├── contact/
+│   ├── skills/
+│   ├── experience/
+│   └── projects/
+├── data/            # Datos estáticos
+│   └── data.json
+└── app/            # Páginas Next.js
+    └── page.tsx
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Cómo ejecutar el proyecto
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Instalar dependencias**:
+   ```bash
+   npm install
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Ejecutar en desarrollo**:
+   ```bash
+   npm run dev
+   ```
 
-## Learn More
+3. **Construir para producción**:
+   ```bash
+   npm run build
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+## 🔧 Cómo modificar y extender
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Agregar una nueva fuente de datos
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Implementa `IDataRepository`:
+```typescript
+export class DatabaseRepository implements IDataRepository {
+  async getCVData(): Promise<CVData> {
+    // Tu lógica aquí
+  }
+}
+```
 
-## Deploy on Vercel
+2. Actualiza el factory:
+```typescript
+// En service.factory.ts
+const repository = new DatabaseRepository();
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Agregar un nuevo componente
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Crea el componente siguiendo SRP:
+```typescript
+interface NewComponentProps {
+  data: SpecificType;
+}
+
+export const NewComponent: React.FC<NewComponentProps> = ({ data }) => {
+  // Solo responsable de mostrar este tipo de datos
+  return <div>{/* Tu UI aquí */}</div>;
+};
+```
+
+2. Úsalo en la página principal importándolo y agregándolo al JSX.
+
+### Modificar validación
+
+1. Extiende o modifica `CVDataValidator`:
+```typescript
+export class EnhancedValidator extends CVDataValidator {
+  validate(data: unknown): data is CVData {
+    // Tu lógica de validación adicional
+    return super.validate(data) && /* tus validaciones */;
+  }
+}
+```
+
+### Agregar nuevos tipos de datos
+
+1. Actualiza `cv.types.ts` con los nuevos tipos
+2. Actualiza las interfaces si es necesario
+3. Modifica el validador para incluir los nuevos campos
+4. Crea componentes para mostrar los nuevos datos
+
+## 🎯 Beneficios de esta arquitectura
+
+- **Mantenibilidad**: Cada pieza tiene una responsabilidad clara
+- **Testabilidad**: Fácil de hacer unit tests por la separación de responsabilidades
+- **Extensibilidad**: Agregar nuevas funcionalidades sin romper código existente
+- **Reutilización**: Componentes y servicios reutilizables
+- **Escalabilidad**: Arquitectura preparada para crecer
+
+## 🧪 Testing
+
+La arquitectura facilita el testing:
+
+```typescript
+// Ejemplo de test para el servicio
+const mockRepository = {
+  getCVData: jest.fn().mockResolvedValue(mockData)
+};
+const mockValidator = {
+  validate: jest.fn().mockReturnValue(true)
+};
+
+const service = new CVDataService(mockRepository, mockValidator);
+```
+
+## 📝 Notas adicionales
+
+- El proyecto usa TypeScript para type safety
+- Tailwind CSS para estilos consistentes
+- Arquitectura preparada para SSR/SSG de Next.js
+- Fácil migración a diferentes fuentes de datos (API, CMS, etc.)

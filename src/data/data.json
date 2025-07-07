@@ -1,0 +1,154 @@
+{
+  "personal": {
+    "name": "Cristhian.Rodriguez",
+    "title": "AI_AUTOMATION_ENGINEER | INTELLIGENT_AGENTS_SPECIALIST | WORKFLOW_ARCHITECT",
+    "location": "Madrid, ES",
+    "available": true,
+    "focus": "AI_Focus: 100%"
+  },
+  "contact": {
+    "phones": ["+34 626223879"],
+    "email": "crbrotea@gmail.com",
+    "linkedin": "linkedin.com/in/cristhianrodriguez",
+    "github": "github.com/crbrotea",
+    "telegram": "@crbrotea",
+    "instagram": "@crbrotea",
+    "twitter": "@crbrotea"
+  },
+  "skills": {
+    "aiAutomation": [
+      { "name": "LangChain", "featured": true },
+      { "name": "MCPs", "featured": true },
+      { "name": "OpenAI_API", "featured": true },
+      { "name": "Claude_API", "featured": true },
+      { "name": "AI_Agents", "featured": true },
+      { "name": "AutoGen", "featured": false },
+      { "name": "CrewAI", "featured": false },
+      { "name": "Zapier", "featured": false },
+      { "name": "Make", "featured": false },
+      { "name": "N8N", "featured": false },
+      { "name": "Pinecone", "featured": false },
+      { "name": "Weaviate", "featured": false }
+    ],
+    "development": [
+      { "name": "Python", "featured": false },
+      { "name": "Node.js", "featured": false },
+      { "name": "FastAPI", "featured": false },
+      { "name": "Vue.js", "featured": false },
+      { "name": "Flutter", "featured": false },
+      { "name": "Docker", "featured": false },
+      { "name": "K8s", "featured": false },
+      { "name": "AWS", "featured": false },
+      { "name": "REST_APIs", "featured": false },
+      { "name": "GraphQL", "featured": false },
+      { "name": "Webhooks", "featured": false }
+    ],
+    "languages": [
+      { "name": "ES_native", "featured": false },
+      { "name": "EN_pro", "featured": false },
+      { "name": "NO_int", "featured": false },
+      { "name": "AR_basic", "featured": false }
+    ]
+  },
+  "education": [
+    {
+      "title": "IEBS Biztech School",
+      "period": "[2023-2024]",
+      "description": "Blockchain & Cryptoassets"
+    },
+    {
+      "title": "Universidad Complutense",
+      "period": "[2013-2017]",
+      "description": "Software Engineering"
+    }
+  ],
+  "certifications": [
+    {
+      "title": "Make Advanced Automation",
+      "organization": "Make.com",
+      "year": "[2024]"
+    },
+    {
+      "title": "Zapier Expert Certification",
+      "organization": "Zapier",
+      "year": "[2024]"
+    }
+  ],
+  "about": "AI Automation Engineer specialized in developing intelligent agents and autonomous workflows. Proven track record implementing AI solutions that process 1,000+ monthly interactions and generate €20,000+ annual savings. Expert in LLM integration, MCP development, and no-code/low-code platforms. Founded Brotea to democratize AI automation tools, creating scalable systems that transform business operations through intelligent decision-making and seamless integrations.",
+  "keyProjects": [
+    {
+      "title": "Multi-Agent Restaurant Management System",
+      "description": "Developed autonomous agent ecosystem handling reservations, customer service, and inventory management. Integrated LangChain with custom MCPs for real-time decision making and cross-platform communication.",
+      "metrics": [
+        "70% efficiency_boost",
+        "€20k annual_savings",
+        "1000+ monthly_interactions"
+      ]
+    },
+    {
+      "title": "Intelligent Workflow Orchestrator",
+      "description": "Built AI-powered automation platform using N8N and custom agents for complex business process automation. Features dynamic workflow adaptation based on context and performance metrics.",
+      "metrics": [
+        "40% productivity_increase",
+        "5M+ api_calls/month",
+        "99.9% uptime"
+      ]
+    },
+    {
+      "title": "Educational AI Assistant Network",
+      "description": "Created distributed agent system for student mentoring and curriculum optimization. Leverages vector databases and semantic search for personalized learning experiences.",
+      "metrics": [
+        "50+ students_supported",
+        "5 partner_organizations",
+        "85% satisfaction_rate"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "title": "Founder & AI Automation Architect",
+      "company": "Brotea Global SL • Madrid, España",
+      "period": "[2023-09::present]",
+      "achievements": [
+        "Architected AI-first development platform with autonomous code generation and testing capabilities",
+        "Developed MCP servers for seamless integration between AI agents and development tools",
+        "Created training programs enabling 50+ students to build production-ready AI automation systems",
+        "Established partnerships with 5 educational organizations for AI literacy initiatives",
+        "Built open-source tools improving development productivity by 40% through intelligent automation"
+      ],
+      "techStack": ["LANGCHAIN", "MCPs", "OPENAI_API", "VECTOR_DB", "PYTHON"]
+    },
+    {
+      "title": "AI Automation Consultant",
+      "company": "Chia Restaurante • Madrid, España",
+      "period": "[2020-04::present]",
+      "achievements": [
+        "Deployed intelligent agent ecosystem automating booking, customer service, and inventory management",
+        "Implemented LangChain-powered chatbot with context awareness handling 1,000+ monthly queries",
+        "Built custom MCPs enabling seamless communication between AI agents and restaurant systems",
+        "Developed Zapier/Make integrations with AI decision layers generating €20,000 annual cost savings",
+        "Created real-time analytics dashboard with predictive insights for operational optimization"
+      ],
+      "techStack": ["LANGCHAIN", "ZAPIER", "MAKE", "N8N", "OPENAI_API", "MCPs"]
+    },
+    {
+      "title": "Full Stack Developer & Automation Specialist",
+      "company": "Qwolo • Madrid, España (Remote)",
+      "period": "[2019-03::present]",
+      "achievements": [
+        "Developed Flutter applications with AI-powered features reaching 10,000+ downloads",
+        "Designed intelligent APIs processing 5M+ monthly requests with autonomous scaling and optimization",
+        "Implemented AI-assisted development workflows improving delivery speed by 40%",
+        "Led cross-functional teams in adopting AI-first development methodologies",
+        "Built automated testing and deployment pipelines with intelligent error detection and resolution"
+      ],
+      "techStack": ["FLUTTER", "NODE_JS", "VUE_JS", "AI_APIS", "AUTOMATION"]
+    }
+  ],
+  "footer": {
+    "version": "v3.0.0_ai_focused",
+    "status": "available",
+    "specialization": "ai_automation",
+    "lastUpdated": "2025-01-07"
+  }
+}
