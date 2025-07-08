@@ -1,4 +1,4 @@
-import { IDataService } from '@/interfaces/data.interface';
+import { IDataService, IDataRepository, IDataValidator } from '@/interfaces/data.interface';
 import { CVDataService } from '@/services/data.service';
 import { JsonDataRepository } from '@/services/data.repository';
 import { CVDataValidator } from '@/services/data.validator';
@@ -18,8 +18,8 @@ export class ServiceFactory {
 
   // For testing or different configurations
   static createDataServiceWithDependencies(
-    repository: any,
-    validator: any
+    repository: IDataRepository,
+    validator: IDataValidator
   ): IDataService {
     return new CVDataService(repository, validator);
   }

@@ -1,4 +1,4 @@
-import { CVData } from '@/types/cv.types';
+import { CVData, PersonalInfo, ContactInfo, SkillCategory } from '@/types/cv.types';
 import { IDataValidator } from '@/interfaces/data.interface';
 
 // Single Responsibility Principle - Only responsible for data validation
@@ -8,7 +8,7 @@ export class CVDataValidator implements IDataValidator {
       return false;
     }
 
-    const cvData = data as any;
+    const cvData = data as Record<string, unknown>;
 
     // Validate required top-level properties
     const requiredProperties = [
@@ -49,27 +49,36 @@ export class CVDataValidator implements IDataValidator {
     return true;
   }
 
-  private validatePersonalInfo(personal: any): boolean {
-    return personal && 
-           typeof personal.name === 'string' &&
-           typeof personal.title === 'string' &&
-           typeof personal.location === 'string' &&
-           typeof personal.available === 'boolean' &&
-           typeof personal.focus === 'string';
+  private validatePersonalInfo(personal: unknown): personal is PersonalInfo {
+    if (!personal || typeof personal !== 'object') {
+      return false;
+    }
+    const p = personal as Record<string, unknown>;
+    return typeof p.name === 'string' &&
+           typeof p.title === 'string' &&
+           typeof p.location === 'string' &&
+           typeof p.available === 'boolean' &&
+           typeof p.focus === 'string';
   }
 
-  private validateContactInfo(contact: any): boolean {
-    return contact &&
-           Array.isArray(contact.phones) &&
-           typeof contact.email === 'string' &&
-           typeof contact.linkedin === 'string' &&
-           typeof contact.github === 'string';
+  private validateContactInfo(contact: unknown): contact is ContactInfo {
+    if (!contact || typeof contact !== 'object') {
+      return false;
+    }
+    const c = contact as Record<string, unknown>;
+    return Array.isArray(c.phones) &&
+           typeof c.email === 'string' &&
+           typeof c.linkedin === 'string' &&
+           typeof c.github === 'string';
   }
 
-  private validateSkills(skills: any): boolean {
-    return skills &&
-           Array.isArray(skills.aiAutomation) &&
-           Array.isArray(skills.development) &&
-           Array.isArray(skills.languages);
+  private validateSkills(skills: unknown): skills is SkillCategory {
+    if (!skills || typeof skills !== 'object') {
+      return false;
+    }
+    const s = skills as Record<string, unknown>;
+    return Array.isArray(s.aiAutomation) &&
+           Array.isArray(s.development) &&
+           Array.isArray(s.languages);
   }
 }

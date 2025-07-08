@@ -7,7 +7,6 @@ import { ContactInfo } from '@/components/contact/ContactInfo';
 import { SkillSection } from '@/components/skills/SkillSection';
 import { ExperienceItem } from '@/components/experience/ExperienceItem';
 import { ProjectItem } from '@/components/projects/ProjectItem';
-import { Card } from '@/components/ui/Card';
 
 // Main CV Page Component - Following Single Responsibility Principle
 export default function CVPage() {
