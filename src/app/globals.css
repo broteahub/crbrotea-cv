@@ -1,36 +1,36 @@
 @import "tailwindcss";
 
-:root {
-  /* Brotea-inspired Tech Color Palette */
-  --background: #1a1b3e;
-  --foreground: #e8eaff;
-  --surface: #252659;
-  --surface-hover: #2d2f66;
-  --accent: #00d4ff;
-  --accent-dark: #0099cc;
-  --secondary: #8b5cf6;
+:root, [data-theme="dark"] {
+  /* Brotea Dark Theme - Maintaining brand consistency */
+  --background: #0a0a0a;
+  --foreground: #fafafa;
+  --surface: #1a1a1a;
+  --surface-hover: #262626;
+  --accent: #a855f7; /* Brotea purple light */
+  --accent-dark: #7c3aed; /* Brotea purple */
+  --secondary: #ec4899; /* Brotea pink */
   --warning: #f59e0b;
   --success: #10b981;
-  --muted: #94a3b8;
-  --border: #374151;
+  --muted: #a1a1aa;
+  --border: #27272a;
   
-  /* Biform Pixel Highlight Colors */
-  --pixel-highlight: #c4f82a;
-  --pixel-accent: #7dd3fc;
-  --pixel-secondary: #a78bfa;
+  /* Brotea brand colors for dark theme */
+  --pixel-highlight: #c084fc; /* Light purple */
+  --pixel-accent: #a78bfa; /* Light violet */
+  --pixel-secondary: #f472b6; /* Light pink */
   
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  --gradient-tech: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
-  --gradient-surface: linear-gradient(145deg, #252659 0%, #1a1b3e 100%);
-  --gradient-pixel: linear-gradient(135deg, #c4f82a 0%, #7dd3fc 100%);
+  /* Gradients - Brotea dark theme */
+  --gradient-primary: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+  --gradient-secondary: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
+  --gradient-tech: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+  --gradient-surface: linear-gradient(145deg, #262626 0%, #1a1a1a 100%);
+  --gradient-pixel: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
   
-  /* Spacing & Effects */
-  --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-large: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --shadow-glow: 0 0 20px rgba(0, 212, 255, 0.3);
+  /* Effects for dark theme */
+  --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+  --shadow-large: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  --shadow-glow: 0 0 20px rgba(168, 85, 247, 0.3);
   
   --blur-backdrop: blur(16px);
   --border-radius: 12px;
@@ -51,19 +51,37 @@
   --font-display: var(--font-biform-pixel), var(--font-pp-neue-machina), ui-sans-serif, system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --background: #f8fafc;
-    --foreground: #0f172a;
-    --surface: #ffffff;
-    --surface-hover: #f1f5f9;
-    --accent: #0ea5e9;
-    --accent-dark: #0284c7;
-    --secondary: #8b5cf6;
-    --muted: #64748b;
-    --border: #e2e8f0;
-    --shadow-glow: 0 0 20px rgba(14, 165, 233, 0.2);
-  }
+[data-theme="light"] {
+  /* Brotea Light Theme - Based on brand identity */
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --surface: #f8f8fc;
+  --surface-hover: #f0f0f8;
+  --accent: #261132; /* Brotea dark purple for text */
+  --accent-dark: #1a0b21;
+  --secondary: #ec4899; /* Brotea pink */
+  --warning: #f59e0b;
+  --success: #10b981;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  
+  /* Brotea brand colors */
+  --pixel-highlight: #261132; /* Dark purple for highlights */
+  --pixel-accent: #261132; /* Dark purple */
+  --pixel-secondary: #ec4899; /* Pink */
+  
+  /* Gradients - Brotea style */
+  --gradient-primary: linear-gradient(135deg, #261132 0%, #3d1a4a 100%);
+  --gradient-secondary: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
+  --gradient-tech: linear-gradient(135deg, #261132 0%, #4a2159 100%);
+  --gradient-surface: linear-gradient(145deg, #ffffff 0%, #f8f8fc 100%);
+  --gradient-pixel: linear-gradient(135deg, #261132 0%, #ec4899 100%);
+  
+  /* Softer shadows for light theme */
+  --shadow-soft: 0 2px 4px -1px rgba(38, 17, 50, 0.06), 0 1px 2px -1px rgba(38, 17, 50, 0.04);
+  --shadow-medium: 0 4px 6px -1px rgba(38, 17, 50, 0.08), 0 2px 4px -1px rgba(38, 17, 50, 0.04);
+  --shadow-large: 0 10px 15px -3px rgba(38, 17, 50, 0.1), 0 4px 6px -2px rgba(38, 17, 50, 0.05);
+  --shadow-glow: 0 0 20px rgba(38, 17, 50, 0.15);
 }
 
 /* Base Styles */
@@ -81,86 +99,109 @@ body {
   font-family: var(--font-display);
 }
 
-/* Biform Pixel Keyword Highlighting - Inspired by Brotea Style */
+/* Brotea-style Keyword Highlighting */
 .keyword {
   font-family: var(--font-biform-pixel), monospace;
-  color: var(--pixel-highlight);
+  color: var(--accent);
   font-weight: 400;
   letter-spacing: 0.1em;
   position: relative;
-  text-shadow: 0 0 10px rgba(196, 248, 42, 0.3);
+  text-shadow: 0 0 8px var(--shadow-glow);
   font-size: 1em;
 }
 
 /* Alternative keyword style for subtitles */
 .keyword-subtitle {
   font-family: var(--font-biform-pixel), monospace;
-  background: var(--gradient-pixel);
+  background: var(--gradient-primary);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 400;
   letter-spacing: 0.08em;
   position: relative;
-  text-shadow: 0 0 15px rgba(196, 248, 42, 0.4);
 }
 
-/* Pixel glow effect */
+/* Minimal glow effect - Brotea style */
 .keyword-glow {
   font-family: var(--font-biform-pixel), monospace;
-  color: var(--pixel-highlight);
-  text-shadow: 
-    0 0 5px rgba(196, 248, 42, 0.8),
-    0 0 10px rgba(196, 248, 42, 0.6),
-    0 0 15px rgba(196, 248, 42, 0.4);
+  color: var(--accent);
+  text-shadow: 0 0 12px var(--shadow-glow);
   letter-spacing: 0.1em;
   font-weight: 400;
 }
 
-/* Tech highlight with Biform Pixel */
+/* Tech highlight with Brotea style */
 .tech-highlight {
   font-family: var(--font-biform-pixel), monospace;
-  color: var(--pixel-accent);
+  color: var(--secondary);
   font-weight: 400;
   letter-spacing: 0.05em;
-  text-shadow: 0 0 8px rgba(125, 211, 252, 0.5);
+  text-shadow: 0 0 6px var(--shadow-glow);
 }
 
-/* Keyword Badge for Skills */
+/* Keyword Badge for Skills - Brotea minimal style */
 .keyword-badge {
-  background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
-  border-color: rgba(0, 212, 255, 0.3) !important;
+  background: linear-gradient(135deg, var(--accent)/10, var(--secondary)/10);
+  border-color: var(--accent)/30 !important;
   color: var(--color-accent) !important;
   font-family: var(--font-display);
   font-weight: 600;
+  backdrop-filter: blur(8px);
 }
 
 .keyword-badge:hover {
-  background: linear-gradient(135deg, rgba(79, 70, 229, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%);
-  box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+  background: linear-gradient(135deg, var(--accent)/20, var(--secondary)/20);
+  box-shadow: var(--shadow-soft);
+  border-color: var(--accent)/50 !important;
 }
 
-/* Modern Cards */
+/* Modern Cards - Brotea style */
 .glass-card {
-  background: rgba(26, 26, 58, 0.8);
+  background: var(--surface)/90;
   backdrop-filter: var(--blur-backdrop);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-medium);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-soft);
   transition: all 0.3s ease;
 }
 
 .glass-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-large);
-  border-color: rgba(0, 212, 255, 0.3);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--accent)/30;
 }
 
-/* Tech Grid Background */
+/* Tech Grid Background - Brotea minimal style */
 .tech-background {
+  background-color: var(--background);
   background-image: 
-    radial-gradient(circle at 25% 25%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+    radial-gradient(circle at 25% 25%, var(--accent)/5, transparent 40%),
+    radial-gradient(circle at 75% 75%, var(--secondary)/5, transparent 40%);
+  position: relative;
+}
+
+/* Subtle pattern overlay */
+.tech-background::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 50px,
+      var(--accent)/2 50px,
+      var(--accent)/2 51px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 50px,
+      var(--secondary)/2 50px,
+      var(--secondary)/2 51px
+    );
+  pointer-events: none;
 }
 
 /* Animated Gradients */
@@ -210,20 +251,23 @@ html {
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--surface);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--accent);
+  background: rgba(26, 27, 62, 0.4);
   border-radius: 4px;
 }
 
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent) 0%, var(--secondary) 100%);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-dark);
+  background: linear-gradient(180deg, var(--accent-dark) 0%, var(--secondary) 100%);
+  box-shadow: 0 0 5px rgba(0, 212, 255, 0.5);
 }
 
 /* Responsive Typography */
@@ -231,4 +275,58 @@ html {
   body {
     font-size: 14px;
   }
+}
+
+/* Additional Dark Theme Enhancements */
+.border-l-4 {
+  border-left-width: 4px;
+}
+
+/* Experience and Project Cards */
+.glass-card h3,
+.glass-card h4 {
+  color: var(--foreground);
+}
+
+.glass-card p {
+  color: var(--muted);
+}
+
+/* Links styling */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-dark);
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
+}
+
+/* List items */
+ul li::before {
+  content: "▸";
+  color: var(--accent);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+/* Tech stack badges */
+.tech-stack-item {
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: var(--secondary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.tech-stack-item:hover {
+  background: rgba(139, 92, 246, 0.2);
+  border-color: rgba(139, 92, 246, 0.5);
+  transform: translateY(-1px);
 }

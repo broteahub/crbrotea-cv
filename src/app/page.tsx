@@ -7,6 +7,7 @@ import { ContactInfo } from '@/components/contact/ContactInfo';
 import { SkillSection } from '@/components/skills/SkillSection';
 import { ExperienceItem } from '@/components/experience/ExperienceItem';
 import { ProjectItem } from '@/components/projects/ProjectItem';
+import { ThemeToggle } from '@/components/theme/ThemeToggle';
 
 // Main CV Page Component - Following Single Responsibility Principle
 export default function CVPage() {
@@ -55,6 +56,11 @@ export default function CVPage() {
       </div>
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Theme Toggle Button */}
+        <div className="fixed top-6 right-6 z-50">
+          <ThemeToggle />
+        </div>
+        
         {/* Header Section */}
         <div className="mb-8">
           <PersonalInfo personalInfo={cvData.personal} />
